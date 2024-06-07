@@ -1,19 +1,17 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Login from './Pages/Login';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './Components/Login';
 import Chat from './Components/Chat';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/login" element={<Login/>} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/" element={<Navigate to="/login" />} />
-        </Routes>
-      </div>
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/chat" component={Chat} />
+      </Switch>
     </Router>
   );
-}
+};
 
 export default App;
